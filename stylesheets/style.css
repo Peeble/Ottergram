@@ -67,12 +67,18 @@ a {
     max-width: 120px;
     border: 1px solid rgb(100%, 100%, 100%);
     border: 1px solid rgba(100%, 100%, 100%, 0.8);
+
+    transition: transform 133ms ease-in-out;
+}
+
+.thumbnail-item:hover {
+    transform: scale(1.2);
 }
 
 .thumbnail-list {
     flex: 0 1 auto;
     list-style: none;
-    padding: 0;
+    padding: 20px 0;
     order: 2;
     display: flex;
     justify-content: space-between;
@@ -99,6 +105,8 @@ a {
 .detail-image-frame {
     position: relative;
     text-align: center;
+
+    transition: transform 333ms cubic-bezier(.99, .13, .85, .96);
 }
 
 .detail-image-container {
@@ -117,4 +125,78 @@ a {
     color: white;
     text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
     font-size: 40px;
+}
+
+.detail-image-left {
+    position: absolute;
+    bottom: 250px;
+    left: -20px;
+
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+    font-size: 40px;
+}
+
+.detail-image-left:hover {
+    transform: scale(1.2);
+
+    transition: transform 133ms ease-in-out;
+}
+
+.detail-image-right {
+    position: absolute;
+    bottom: 250px;
+    right: -20px;
+
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+    font-size: 40px;
+}
+
+.detail-image-right:hover {
+    transform: scale(1.2);
+
+    transition: transform 133ms ease-in-out;
+}
+
+
+.hidden-detail .detail-image-container {
+    display: none;
+}
+
+.hidden-detail .thumbnail-list {
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden-detail .thumbnail-item {
+    max-width: 80%;
+}
+
+.is-tiny {
+    transform: scale(0.001);
+    transition: transform 0ms;
+}
+
+@media all and (orientation: landscape) {
+    .main-content {
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    .thumbnail-list {
+        flex-direction: column;
+        order: 0;
+        margin-left: 20px;
+
+        padding: 0 35px;
+    }
+
+    .thumbnail-item {
+        max-width: 260px;
+    }
+
+    .thumbnail-item+.thumbnail-item {
+        margin-top: 20px;
+    }
 }
